@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> with WindowListener {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        title: const Text("MeSH Graph"),
+        title: const Text("File System Graph"),
         // Hide end drawer button
         actions: const [SizedBox()],
       ),
