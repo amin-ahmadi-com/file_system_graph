@@ -73,14 +73,46 @@ class _HomePageState extends State<HomePage> with WindowListener {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.help),
+              leading: const Icon(Icons.info_outline),
+              title: const Text("Help"),
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (_) =>
+                      AlertDialog(
+                        title: const Text('How to Use'),
+                        content: const Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Drag and drop a folder onto the window.'),
+                            SizedBox(height: 8),
+                            Text('Expand nodes to explore subfolders.'),
+                            SizedBox(height: 8),
+                            Text(
+                                'Right-click or long-press a node for options like open, copy path, delete.'),
+                          ],
+                        ),
+                        actions: [
+                          TextButton(
+                            child: const Text('Okay'),
+                            onPressed: () => Navigator.pop(context),
+                          ),
+                        ],
+                      ),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.help_outline),
               title: const Text("About"),
-              onTap: () => showAboutDialog(
-                context: context,
-                applicationName: "File System Graph",
-                applicationLegalese: "Copyright 2023\nwww.amin-ahmadi.com",
-                applicationVersion: "1.0.0",
-              ),
+              onTap: () =>
+                  showAboutDialog(
+                    context: context,
+                    applicationName: "File System Graph",
+                    applicationLegalese: "Copyright 2023\nwww.amin-ahmadi.com",
+                    applicationVersion: "1.0.0",
+                  ),
             )
           ],
         ),
